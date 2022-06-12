@@ -2,7 +2,7 @@ FROM jupyter/datascience-notebook
 
 USER ${NB_USER}
 WORKDIR /home/${NB_USER}/work
-COPY --chown=${NB_UID}:${NB_GID} requirements.txt .
+COPY --chown=${NB_UID}:${NB_GID} requirements.txt ./
 
 RUN pip install --upgrade pip  &&\
     pip install --quiet --no-cache-dir -r ./requirements.txt
