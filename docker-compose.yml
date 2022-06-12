@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+  jupyterlab:
+    build: .
+    image: ken2s/jupyterlab:20220612
+    container_name: jupyterlab
+    user: $NB_USER
+    working_dir: /home/$NB_USER/notebooks
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - GRANT_SUDO=yes
+      - CHOWN_HOME=yes
+      - NB_USER=$NB_USER
+      - NB_UID=$NB_UID
+      - NB_GID=$NB_GID
+      - JAVA_HOME=$JAVA_HOME
+    volumes:
+      - ~/notebooks:/home/$NB_USER/notebooks
+    # ports:
+    #   - 8888:8888
+    network_mode: "host"

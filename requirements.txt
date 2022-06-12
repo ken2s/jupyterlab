@@ -1,0 +1,8 @@
+black
+feret
+isort
+jupyterlab_code_formatter
+jupyterlab-lsp
+opencv-python
+opencv-contrib-python
+python-lsp-server
