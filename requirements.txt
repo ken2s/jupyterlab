@@ -6,3 +6,4 @@ jupyterlab-lsp
 opencv-python
 opencv-contrib-python
 python-lsp-server
+numba
