@@ -30,7 +30,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: mu777/odrive-cli
+          images: ken2s/jupyterlab
           flavor: latest=true
 
       - name: Build and push Docker image
@@ -47,6 +47,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: mu777/odrive-cli
+          repository: ken2s/jupyterlab
           readme-filepath: ./README.md
           short-description: ${{ github.event.repository.description }}
