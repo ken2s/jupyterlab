@@ -17,7 +17,7 @@
 - [BeakerX](http://beakerx.com)
 - [OpenJDK](https://openjdk.java.net) -->
 
-![notebooks](./notebooks.png)
+![notebooks](https://raw.githubusercontent.com/ken2s/jupyterlab/main/notebooks.png)
 
 ## Usage
 
