@@ -8,8 +8,8 @@ RUN apt-get update &&\
 
 USER ${NB_USER}
 WORKDIR /home/${NB_USER}/work
-COPY --chown=${NB_UID}:${NB_GID} packages.* .
-COPY --chown=${NB_UID}:${NB_GID} requirements.txt .
+COPY --chown=${NB_UID}:${NB_GID} packages.* ./
+COPY --chown=${NB_UID}:${NB_GID} requirements.txt ./
 
 RUN pip install --upgrade pip  &&\
     pip install --quiet --no-cache-dir -r ./requirements.txt &&\
@@ -17,7 +17,7 @@ RUN pip install --upgrade pip  &&\
     Rscript ./packages.R
 
 RUN conda install beakerx openjdk=8 pyimagej rise \
-    jupyter_contrib_nbextensions -c conda-forge &&\
+    jupyter_contrib_nbextensions -c conda-forge -y &&\
     conda clean -i -t -y
 
 RUN echo "c.NotebookApp.token=''" >> ~/.jupyter/jupyter_notebook_config.py &&\
