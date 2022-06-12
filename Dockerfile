@@ -7,7 +7,7 @@ COPY --chown=${NB_UID}:${NB_GID} requirements.txt ./
 RUN pip install --upgrade pip  &&\
     pip install --quiet --no-cache-dir -r ./requirements.txt
 RUN conda install beakerx openjdk=8 pyimagej rise \
-    jupyter_contrib_nbextensions -c conda-forge &&\
+    jupyter_contrib_nbextensions -c conda-forge -y &&\
     conda clean -i -t -y
 
 USER root
