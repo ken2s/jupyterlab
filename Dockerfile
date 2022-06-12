@@ -1,11 +1,5 @@
 FROM jupyter/datascience-notebook
 
-USER root
-RUN apt-get update &&\
-    apt-get install -y cmake &&\
-    apt-get clean &&\
-    rm -rf /usr/local/src/*
-
 USER ${NB_USER}
 WORKDIR /home/${NB_USER}/work
 COPY --chown=${NB_UID}:${NB_GID} requirements.txt .
