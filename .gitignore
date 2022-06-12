@@ -1,0 +1,13 @@
+.github/*
+work/*
+*.swp
+*.pyc
+/bin/
+/build/
+/dist/
+MANIFEST
+.vscode/settings.json
+.vscode/launch.json
+*.ipynb_checkpoints*
+.DS_Store
+@eaDir
