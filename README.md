@@ -30,7 +30,11 @@
 ### Create and start containers in the background
 
 ```
- docker-compose up -d
+ docker run -it \
+  -p 8888:8888 \
+  -w /home/jovyan/notebooks \
+  -v $PWD/notebooks:/home/jovyan/notebooks  \
+  --rm ken2s/jupyterlab
 ```
 
 ## URLs
