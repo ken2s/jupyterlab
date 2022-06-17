@@ -10,8 +10,8 @@ USER ${NB_USER}
 WORKDIR /home/${NB_USER}/work
 COPY --chown=${NB_UID}:${NB_GID} packages.* ./
 COPY --chown=${NB_UID}:${NB_GID} requirements.txt ./
-COPY --chown=${NB_UID}:${NB_GID} ./work/fiji-linux64.zip ./
-RUN unzip fiji-linux64.zip &&\
+RUN wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip &&\
+    unzip fiji-linux64.zip &&\
     rm fiji-linux64.zip
 
 RUN pip install --upgrade pip  &&\
