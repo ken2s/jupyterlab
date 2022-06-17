@@ -21,10 +21,12 @@
 
 ## Usage
 
-### Docker pull command
-
 ```
- docker pull ken2s/jupyterlab
+ docker run -it \
+  -p 8888:8888 \
+  -w /home/jovyan/notebooks \
+  -v $PWD/notebooks:/home/jovyan/notebooks  \
+  --rm ken2s/jupyterlab
 ```
 
 ### Create and start containers in the background
