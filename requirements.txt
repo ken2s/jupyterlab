@@ -8,3 +8,4 @@ opencv-contrib-python
 python-lsp-server
 numba
 plotly
+napari[all]
