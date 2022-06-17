@@ -1,5 +1,4 @@
 black
-feret
 isort
 jupyterlab_code_formatter
 jupyterlab-lsp
