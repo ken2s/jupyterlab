@@ -12,7 +12,9 @@ COPY --chown=${NB_UID}:${NB_GID} packages.* ./
 COPY --chown=${NB_UID}:${NB_GID} requirements.txt ./
 RUN wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip &&\
     unzip fiji-linux64.zip &&\
-    rm fiji-linux64.zip
+    rm fiji-linux64.zip &&\
+    wget https://maven.scijava.org/service/local/artifact/maven/redirect?r=releases&g=net.imglib2&a=imglib2-unsafe&v=0.4.1&e=jar &&\
+    wget https://maven.scijava.org/service/local/artifact/maven/redirect?r=releases&g=net.imglib2&a=imglib2-imglyb&v=1.0.1&e=jar
 
 RUN pip install --upgrade pip  &&\
     pip install --quiet --no-cache-dir -r ./requirements.txt &&\
@@ -28,7 +30,8 @@ RUN echo "c.NotebookApp.token=''" >> ~/.jupyter/jupyter_notebook_config.py &&\
     fix-permissions "/home/${NB_USER}"
 
 USER root
-RUN mv Fiji.app /opt/
+RUN mv Fiji.app /opt/ &&\
+    mv *.jar /opt/Fiji.app/jars/
 RUN rm -rf /var/lib/apt/lists/* &&\
     usermod -aG sudo jovyan &&\
     echo 'jovyan ALL=(ALL) NOPASSWD: ALL' | EDITOR='tee -a' visudo
