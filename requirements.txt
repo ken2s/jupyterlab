@@ -9,3 +9,4 @@ python-lsp-server
 numba
 plotly
 napari[all]
+imea
