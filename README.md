@@ -21,14 +21,6 @@
 
 ## Usage
 
-### Docker pull command
-
-```
- docker pull ken2s/jupyterlab
-```
-
-### Create and start containers in the background
-
 ```
  docker run -it \
   -p 8888:8888 \
