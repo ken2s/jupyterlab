@@ -29,12 +29,6 @@
   --rm ken2s/jupyterlab
 ```
 
-### Create and start containers in the background
-
-```
- docker-compose up -d
-```
-
 ## URLs
 - https://github.com/ken2s/jupyterlab
 - https://hub.docker.com/r/ken2s/jupyterlab
