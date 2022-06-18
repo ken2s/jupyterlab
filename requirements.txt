@@ -1,8 +1,16 @@
+autopep8
 black
 isort
 jupyterlab_code_formatter
 jupyterlab-lsp
+mccabe
+numba
 opencv-python
 opencv-contrib-python
+pycodestyle
+pydocstyle
+pylint
 python-lsp-server
-numba
+rope_completion
+rope_rename
+yapf
