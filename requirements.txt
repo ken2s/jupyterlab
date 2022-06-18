@@ -11,5 +11,4 @@ pycodestyle
 pydocstyle
 pylint
 python-lsp-server
-rope_rename
 yapf
