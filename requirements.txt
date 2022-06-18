@@ -12,4 +12,5 @@ pydocstyle
 pyflakes
 pylint
 python-lsp-server
+rope
 yapf
