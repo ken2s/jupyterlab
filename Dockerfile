@@ -43,6 +43,5 @@ RUN rm -rf /var/lib/apt/lists/* &&\
     echo 'jovyan ALL=(ALL) NOPASSWD: ALL' | EDITOR='tee -a' visudo
 
 WORKDIR /notebooks
-RUN fix-permissions "/notebooks"
 
 EXPOSE 8888
