@@ -32,7 +32,7 @@
   --rm ken2s/jupyterlab
 ```
 
-Visiting http://<hostname>:8888/?token=<token> in a browser loads JupyterLab, where:
+Visiting `http://<hostname>:8888/?token=<token>` in a browser loads JupyterLab, where:
 
 - `hostname` is the name of the computer running Docker
 - `token` is the secret token printed in the console.
@@ -51,7 +51,7 @@ The container remains intact for restart after the Jupyter Server exits.
   jupyter-lab --allow-root --NotebookApp.token=''
 ```
 
-Visiting http://localhost:8888/ in a browser loads JupyterLab.
+Visiting [http://localhost:8888/](http://localhost:8888/) in a browser loads JupyterLab.
 
 ## URLs
 - https://github.com/ken2s/jupyterlab
