@@ -1,5 +1,7 @@
 # Docker-JupyterLab
 
+![Publish Docker image workflow](https://github.com/ken2s/jupyterlab/actions/workflows/build-and-push-image.yml/badge.svg)
+
 ## Notebooks
 
 - [Python3](https://www.python.org)
