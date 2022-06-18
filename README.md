@@ -32,15 +32,11 @@
   -v $PWD/notebooks:/notebooks  \
   -e JAVA_HOME=/opt/conda/jre \
   --net=host \
-  --rm ken2s/jupyterlab
+  --rm ken2s/jupyterlab \
+  jupyter-lab --allow-root --NotebookApp.token=''
 ```
 
-Visiting `http://<hostname>:8888/?token=<token>` in a browser loads JupyterLab, where:
-
-- `hostname` is the name of the computer running Docker
-- `token` is the secret token printed in the console.
-
-The container remains intact for restart after the Jupyter Server exits.
+Visiting [http://localhost:8888/](http://localhost:8888/) in a browser loads JupyterLab.
 
 ### Example 2:
 
@@ -49,12 +45,17 @@ The container remains intact for restart after the Jupyter Server exits.
   -w /notebooks \
   -v $PWD/notebooks:/notebooks  \
   -e JAVA_HOME=/opt/conda/jre \
+  --name jupyterlab \
   --net=host \
-  --rm ken2s/jupyterlab \
-  jupyter-lab --allow-root --NotebookApp.token=''
+  ken2s/jupyterlab
 ```
 
-Visiting [http://localhost:8888/](http://localhost:8888/) in a browser loads JupyterLab.
+Visiting `http://<hostname>:8888/?token=<token>` in a browser loads JupyterLab, where:
+
+- `hostname` is the name of the computer running Docker
+- `token` is the secret token printed in the console.
+
+The container remains intact for restart after the Jupyter Server exits.
 
 ## URLs
 - https://github.com/ken2s/jupyterlab
