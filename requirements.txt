@@ -9,6 +9,7 @@ opencv-python
 opencv-contrib-python
 pycodestyle
 pydocstyle
+pyflakes
 pylint
 python-lsp-server
 yapf
