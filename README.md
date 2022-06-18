@@ -23,8 +23,8 @@
 
 ```
  docker run -it \
-  -w /home/jovyan/notebooks \
-  -v $PWD/notebooks:/home/jovyan/notebooks  \
+  -w /notebooks \
+  -v $PWD/notebooks:/notebooks  \
   -e JAVA_HOME=/opt/conda/jre \
   --net=host \
   --rm ken2s/jupyterlab
