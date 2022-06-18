@@ -21,6 +21,8 @@
 
 ## Usage
 
+### Example 1:
+
 ```
  docker run -it \
   -w /notebooks \
@@ -29,6 +31,27 @@
   --net=host \
   --rm ken2s/jupyterlab
 ```
+
+Visiting http://<hostname>:8888/?token=<token> in a browser loads JupyterLab, where:
+
+- `hostname` is the name of the computer running Docker
+- `token` is the secret token printed in the console.
+
+The container remains intact for restart after the Jupyter Server exits.
+
+### Example 2:
+
+```
+ docker run -it \
+  -w /notebooks \
+  -v $PWD/notebooks:/notebooks  \
+  -e JAVA_HOME=/opt/conda/jre \
+  --net=host \
+  --rm ken2s/jupyterlab \
+  jupyter-lab --allow-root --NotebookApp.token=''
+```
+
+Visiting http://localhost:8888/ in a browser loads JupyterLab.
 
 ## URLs
 - https://github.com/ken2s/jupyterlab
