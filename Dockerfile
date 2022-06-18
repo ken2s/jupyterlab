@@ -1,6 +1,5 @@
 FROM jupyter/datascience-notebook:2022-06-13
 
-
 USER root
 RUN apt-get update &&\
     apt-get install -y cmake xvfb &&\
