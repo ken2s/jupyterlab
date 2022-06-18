@@ -6,7 +6,7 @@ services:
     image: ken2s/jupyterlab:20220618
     container_name: jupyterlab
     user: $NB_USER
-    working_dir: /home/$NB_USER/notebooks
+    working_dir: /notebooks
     environment:
       - JUPYTER_ENABLE_LAB=yes
       - GRANT_SUDO=yes
@@ -16,7 +16,7 @@ services:
       - NB_GID=$NB_GID
       - JAVA_HOME=$JAVA_HOME
     volumes:
-      - ~/notebooks:/home/$NB_USER/notebooks
+      - ~/notebooks:/notebooks
     # ports:
     #   - 8888:8888
     network_mode: "host"
