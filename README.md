@@ -26,6 +26,7 @@
   -p 8888:8888 \
   -w /home/jovyan/notebooks \
   -v $PWD/notebooks:/home/jovyan/notebooks  \
+  -e JAVA_HOME=/opt/conda/jre \
   --rm ken2s/jupyterlab
 ```
 
