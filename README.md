@@ -1,6 +1,7 @@
 # Docker-JupyterLab
 
-![Publish Docker image workflow](https://github.com/ken2s/jupyterlab/actions/workflows/build-and-push-image.yml/badge.svg)
+<!-- ![Publish Docker image workflow](https://github.com/ken2s/jupyterlab/actions/workflows/build-and-push-image.yml/badge.svg) -->
+<a href="https://github.com/ken2s/jupyterlab/actions" rel="nofollow noopener" target="_blank"><img src="https://github.com/ken2s/jupyterlab/actions/workflows/build-and-push-image.yml/badge.svg" alt="Publish Docker image workflow"></a></p>
 
 ## Notebooks
 
