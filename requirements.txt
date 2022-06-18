@@ -9,8 +9,10 @@ opencv-python
 opencv-contrib-python
 pycodestyle
 pydocstyle
+pyflakes
 pylint
 python-lsp-server
+rope
 yapf
 feret
 numba
