@@ -13,8 +13,8 @@ COPY --chown=${NB_UID}:${NB_GID} packages.* ./
 COPY --chown=${NB_UID}:${NB_GID} requirements.txt ./
 RUN wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip &&\
     wget https://maven.scijava.org/service/local/artifact/maven/redirect?r=releases&g=net.imglib2&a=imglib2-unsafe&v=0.4.1&e=jar &&\
-    wget https://maven.scijava.org/service/local/artifact/maven/redirect?r=releases&g=net.imglib2&a=imglib2-imglyb&v=1.0.1&e=jar &&\
-    unzip fiji-linux64.zip
+    wget https://maven.scijava.org/service/local/artifact/maven/redirect?r=releases&g=net.imglib2&a=imglib2-imglyb&v=1.0.1&e=jar
+RUN unzip fiji-linux64.zip
 
 RUN pip install --upgrade pip  &&\
     pip install --quiet --no-cache-dir -r ./requirements.txt &&\
