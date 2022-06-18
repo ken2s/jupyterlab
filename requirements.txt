@@ -11,8 +11,6 @@ pycodestyle
 pydocstyle
 pylint
 python-lsp-server
-rope_completion
-rope_rename
 yapf
 feret
 numba
