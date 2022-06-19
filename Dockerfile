@@ -18,14 +18,14 @@ RUN wget https://maven.scijava.org/content/repositories/public/net/imglib2/imgli
     wget https://maven.scijava.org/content/repositories/public/net/imglib2/imglib2-imglyb/1.0.1/imglib2-imglyb-1.0.1.jar &&\
     mv ./*.jar ./Fiji.app/jars/
 
+RUN fix-permissions "${CONDA_DIR}" &&\
+    fix-permissions "/home/${NB_USER}"
+
 USER root
 WORKDIR /home/${NB_USER}/work
 
 RUN rm fiji-linux64.zip &&\
     mv Fiji.app /opt/
-
-RUN fix-permissions "${CONDA_DIR}" &&\
-    fix-permissions "/home/${NB_USER}"
 
 WORKDIR /notebooks
 
