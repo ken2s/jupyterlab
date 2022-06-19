@@ -29,4 +29,7 @@ RUN fix-permissions "${CONDA_DIR}" &&\
 
 WORKDIR /notebooks
 
+ENV CONDA_DIR=/opt/conda
+ENV JAVA_HOME=/opt/conda/jre
+
 EXPOSE 8888
