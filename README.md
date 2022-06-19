@@ -43,8 +43,8 @@ Visiting [http://localhost:8888/](http://localhost:8888/) in a browser loads Jup
  docker run -it \
   -w /notebooks \
   -v $PWD/notebooks:/notebooks  \
+  -p 8888:8888 \
   --name jupyterlab \
-  --net=host \
   ken2s/jupyterlab
 ```
 
