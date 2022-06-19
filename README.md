@@ -32,10 +32,11 @@
   -v $PWD/notebooks:/notebooks  \
   --net=host \
   --rm ken2s/jupyterlab \
-  jupyter-lab --allow-root --NotebookApp.token=''
+  jupyter-lab --allow-root \
+  --NotebookApp.token=''
 ```
 
-Visiting [http://localhost:8888/](http://localhost:8888/) in a browser loads JupyterLab.
+Visiting [http://localhost:8888](http://localhost:8888) in a browser loads JupyterLab.
 
 ### Example 2:
 
