@@ -52,7 +52,9 @@ The container remains intact for restart after the Jupyter Server exits.
   --rm ken2s/jupyterlab
 ```
 
-Automatically remove the container after the Jupyter Server exits.
+Visiting `http://<hostname>:8888/?token=<token>` in a browser loads JupyterLab.
+
+Automatically remove the container when it exits.
 
 ## URLs
 - https://github.com/ken2s/jupyterlab
