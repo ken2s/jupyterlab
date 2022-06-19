@@ -30,13 +30,13 @@
  docker run -it \
   -w /notebooks \
   -v $PWD/notebooks:/notebooks  \
-  -e JAVA_HOME=/opt/conda/jre \
   --net=host \
   --rm ken2s/jupyterlab \
-  jupyter-lab --allow-root --NotebookApp.token=''
+  jupyter-lab --allow-root \
+  --NotebookApp.token=''
 ```
 
-Visiting [http://localhost:8888/](http://localhost:8888/) in a browser loads JupyterLab.
+Visiting [http://localhost:8888](http://localhost:8888) in a browser loads JupyterLab.
 
 ### Example 2:
 
@@ -44,9 +44,8 @@ Visiting [http://localhost:8888/](http://localhost:8888/) in a browser loads Jup
  docker run -it \
   -w /notebooks \
   -v $PWD/notebooks:/notebooks  \
-  -e JAVA_HOME=/opt/conda/jre \
+  -p 8888:8888 \
   --name jupyterlab \
-  --net=host \
   ken2s/jupyterlab
 ```
 
