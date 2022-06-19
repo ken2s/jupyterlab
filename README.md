@@ -52,7 +52,6 @@
  docker run -it \
   -w /notebooks \
   -v $PWD/notebooks:/notebooks  \
-  -e JAVA_HOME=/opt/conda/jre \
   --net=host \
   --rm ken2s/jupyterlab
 ```
@@ -70,7 +69,6 @@ The container remains intact for restart after the Jupyter Server exits.
  docker run -it \
   -w /notebooks \
   -v $PWD/notebooks:/notebooks  \
-  -e JAVA_HOME=/opt/conda/jre \
   --net=host \
   --rm ken2s/jupyterlab \
   jupyter-lab --allow-root --NotebookApp.token=''

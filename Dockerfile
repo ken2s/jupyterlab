@@ -44,4 +44,7 @@ RUN rm -rf /var/lib/apt/lists/* &&\
 
 WORKDIR /notebooks
 
+ENV CONDA_DIR=/opt/conda
+ENV JAVA_HOME=/opt/conda/jre
+
 EXPOSE 8888
