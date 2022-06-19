@@ -30,20 +30,6 @@
  docker run -it \
   -w /notebooks \
   -v $PWD/notebooks:/notebooks  \
-  --net=host \
-  --rm ken2s/jupyterlab \
-  jupyter-lab --allow-root \
-  --NotebookApp.token=''
-```
-
-Visiting [http://localhost:8888](http://localhost:8888) in a browser loads JupyterLab.
-
-### Example 2:
-
-```
- docker run -it \
-  -w /notebooks \
-  -v $PWD/notebooks:/notebooks  \
   -p 8888:8888 \
   --name jupyterlab \
   ken2s/jupyterlab
@@ -55,6 +41,20 @@ Visiting `http://<hostname>:8888/?token=<token>` in a browser loads JupyterLab, 
 - `token` is the secret token printed in the console.
 
 The container remains intact for restart after the Jupyter Server exits.
+
+### Example 2:
+
+```
+ docker run -it \
+  -w /notebooks \
+  -v $PWD/notebooks:/notebooks  \
+  --net=host \
+  --rm ken2s/jupyterlab
+```
+
+Visiting `http://<hostname>:8888/?token=<token>` in a browser loads JupyterLab.
+
+Automatically remove the container when it exits.
 
 ## URLs
 - https://github.com/ken2s/jupyterlab
