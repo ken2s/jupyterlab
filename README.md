@@ -36,7 +36,7 @@ On the terminal, create the `notebooks` directory in the current directory. Next
   ken2s/jupyterlab:latest
 ```
 
-Visiting `http://<hostname>:8888/?token=<token>` in a browser loads JupyterLab, where:
+Visiting `http://<hostname>:8888/lab?token=<token>` in a browser loads JupyterLab, where:
 
 - `hostname` is the name of the computer running Docker
 - `token` is the secret token printed in the console.
@@ -52,7 +52,7 @@ The container remains intact for restart after the Jupyter Server exits.
   ken2s/jupyterlab:latest
 ```
 
-Visiting `http://<hostname>:8888/?token=<token>` in a browser loads JupyterLab.
+Visiting `http://<hostname>:8888/lab?token=<token>` in a browser loads JupyterLab.
 
 Automatically remove the container when it exits.
 
