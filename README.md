@@ -24,18 +24,19 @@
 
 ## Usage
 
+On the terminal, create the `notebooks` directory in the current directory. Next, enter the following docker command.
+
 ### Example 1:
 
 ```
  docker run -it \
-  -w /notebooks \
   -v $PWD/notebooks:/notebooks  \
   -p 8888:8888 \
   --name jupyterlab \
-  ken2s/jupyterlab
+  ken2s/jupyterlab:latest
 ```
 
-Visiting `http://<hostname>:8888/?token=<token>` in a browser loads JupyterLab, where:
+Visiting `http://<hostname>:8888/lab?token=<token>` in a browser loads JupyterLab, where:
 
 - `hostname` is the name of the computer running Docker
 - `token` is the secret token printed in the console.
@@ -45,14 +46,13 @@ The container remains intact for restart after the Jupyter Server exits.
 ### Example 2:
 
 ```
- docker run -it \
-  -w /notebooks \
+ docker run -it --rm \
   -v $PWD/notebooks:/notebooks  \
   --net=host \
-  --rm ken2s/jupyterlab
+  ken2s/jupyterlab:latest
 ```
 
-Visiting `http://<hostname>:8888/?token=<token>` in a browser loads JupyterLab.
+Visiting `http://<hostname>:8888/lab?token=<token>` in a browser loads JupyterLab.
 
 Automatically remove the container when it exits.
 
