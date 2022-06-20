@@ -24,6 +24,8 @@
 
 ## Usage
 
+On the terminal, create the `notebooks` directory in the current directory. Next, enter the following docker command.
+
 ### Example 1:
 
 ```
