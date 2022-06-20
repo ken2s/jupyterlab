@@ -28,11 +28,10 @@
 
 ```
  docker run -it \
-  -w /notebooks \
   -v $PWD/notebooks:/notebooks  \
   -p 8888:8888 \
   --name jupyterlab \
-  ken2s/jupyterlab
+  ken2s/jupyterlab:latest
 ```
 
 Visiting `http://<hostname>:8888/?token=<token>` in a browser loads JupyterLab, where:
@@ -45,11 +44,10 @@ The container remains intact for restart after the Jupyter Server exits.
 ### Example 2:
 
 ```
- docker run -it \
-  -w /notebooks \
+ docker run -it --rm \
   -v $PWD/notebooks:/notebooks  \
   --net=host \
-  --rm ken2s/jupyterlab
+  ken2s/jupyterlab:latest
 ```
 
 Visiting `http://<hostname>:8888/?token=<token>` in a browser loads JupyterLab.
