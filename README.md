@@ -30,10 +30,10 @@ On the terminal, create the `notebooks` directory in the current directory. Next
 
 ```
  docker run -it \
-  -v $PWD/notebooks:/notebooks  \
   -p 8888:8888 \
   --name jupyterlab \
-  ken2s/jupyterlab:latest
+  -v $PWD/notebooks:/notebooks  \
+  ken2s/jupyterlab
 ```
 
 Visiting `http://<hostname>:8888/lab?token=<token>` in a browser loads JupyterLab, where:
@@ -46,15 +46,18 @@ The container remains intact for restart after the Jupyter Server exits.
 ### Example 2:
 
 ```
- docker run -it --rm \
+ docker run -it \
+  --rm \
+  --env NB_UID=1000 \
+  --env NB_GID=100 \
+  --net="host" \
   -v $PWD/notebooks:/notebooks  \
-  --net=host \
-  ken2s/jupyterlab:latest
+  ken2s/jupyterlab
 ```
 
-Visiting `http://<hostname>:8888/lab?token=<token>` in a browser loads JupyterLab.
-
-Automatically remove the container when it exits.
+- By `--rm` option, automatically remove the container when it exits.
+- By `--env` option, the notebook user `jovyan` in the container can be given the same `UID` or `GID` as the host user.
+- By `--net="host"` option, use host network mode for the container.
 
 ## URLs
 - https://github.com/ken2s/jupyterlab
