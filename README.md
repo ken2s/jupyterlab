@@ -30,9 +30,9 @@ On the terminal, create the `notebooks` directory in the current directory. Next
 
 ```
  docker run -it \
-  -v $PWD/notebooks:/notebooks  \
   -p 8888:8888 \
   --name jupyterlab \
+  -v $PWD/notebooks:/notebooks  \
   ken2s/jupyterlab
 ```
 
