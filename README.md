@@ -33,7 +33,7 @@ On the terminal, create the `notebooks` directory in the current directory. Next
   -v $PWD/notebooks:/notebooks  \
   -p 8888:8888 \
   --name jupyterlab \
-  ken2s/jupyterlab:latest
+  ken2s/jupyterlab
 ```
 
 Visiting `http://<hostname>:8888/lab?token=<token>` in a browser loads JupyterLab, where:
@@ -52,7 +52,7 @@ The container remains intact for restart after the Jupyter Server exits.
   --env NB_GID=100 \
   --net="host" \
   -v $PWD/notebooks:/notebooks  \
-  ken2s/jupyterlab:latest
+  ken2s/jupyterlab
 ```
 
 - By `--rm` option, automatically remove the container when it exits.
