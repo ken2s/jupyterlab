@@ -57,7 +57,7 @@ The container remains intact for restart after the Jupyter Server exits.
 
 - By `--rm` option, automatically remove the container when it exits.
 - By `--env` option, the notebook user `jovyan` in the container can be given the same `UID` or `GID` as the host user.
-- By `--net="host"` option, use host network mode for a container.
+- By `--net="host"` option, use host network mode for the container.
 
 ## URLs
 - https://github.com/ken2s/jupyterlab
