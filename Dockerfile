@@ -21,11 +21,15 @@ RUN wget https://maven.scijava.org/content/repositories/public/net/imglib2/imgli
 RUN fix-permissions "${CONDA_DIR}" &&\
     fix-permissions "/home/${NB_USER}"
 
-USER root
-WORKDIR /home/${NB_USER}/work
+RUN pip install --quiet --no-cache-dir git+https://github.com/imagej/pyimagej.git@master
 
-RUN rm fiji-linux64.zip &&\
-    mv Fiji.app /opt/
+USER root
+
+RUN rm /home/${NB_USER}/work/fiji-linux64.zip &&\
+    mv /home/${NB_USER}/work/Fiji.app /opt/ &&\
+    rm -rf /var/lib/apt/lists/* &&\
+    usermod -aG sudo jovyan &&\
+    echo 'jovyan ALL=(ALL) NOPASSWD: ALL' | EDITOR='tee -a' visudo
 
 WORKDIR /notebooks
 

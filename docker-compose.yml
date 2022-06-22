@@ -17,6 +17,6 @@ services:
       - JAVA_HOME=$JAVA_HOME
     volumes:
       - ~/notebooks:/notebooks
-    network_mode: "host"
-    # ports:
-    #   - 8888:8888
+    ports:
+      - 8888:8888
+    # network_mode: "host"
