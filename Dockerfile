@@ -32,7 +32,7 @@ RUN wget https://maven.scijava.org/content/repositories/public/net/imglib2/imgli
     wget https://maven.scijava.org/content/repositories/public/net/imglib2/imglib2-imglyb/1.0.1/imglib2-imglyb-1.0.1.jar &&\
     mv ./*.jar ./Fiji.app/jars/
 
-RUN pip install --quiet --no-cache-dir git+git@github.com:imagej/pyimagej.git@master
+RUN pip install --quiet --no-cache-dir git+https://github.com/imagej/pyimagej.git@master
 
 USER root
 WORKDIR /home/${NB_USER}/work
