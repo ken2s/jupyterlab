@@ -26,10 +26,7 @@ RUN pip install --quiet --no-cache-dir git+https://github.com/imagej/pyimagej.gi
 USER root
 
 RUN rm /home/${NB_USER}/work/fiji-linux64.zip &&\
-    mv /home/${NB_USER}/work/Fiji.app /opt/ &&\
-    rm -rf /var/lib/apt/lists/* &&\
-    usermod -aG sudo jovyan &&\
-    echo 'jovyan ALL=(ALL) NOPASSWD: ALL' | EDITOR='tee -a' visudo
+    mv /home/${NB_USER}/work/Fiji.app /opt/
 
 WORKDIR /notebooks
 
