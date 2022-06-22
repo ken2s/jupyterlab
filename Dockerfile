@@ -35,12 +35,10 @@ RUN wget https://maven.scijava.org/content/repositories/public/net/imglib2/imgli
 RUN pip install --quiet --no-cache-dir git+https://github.com/imagej/pyimagej.git@master
 
 USER root
-WORKDIR /home/${NB_USER}/work
 
-RUN rm fiji-linux64.zip &&\
-    mv Fiji.app /opt/
-
-RUN rm -rf /var/lib/apt/lists/* &&\
+RUN rm /home/${NB_USER}/work/fiji-linux64.zip &&\
+    mv /home/${NB_USER}/work/Fiji.app /opt/ &&\
+    rm -rf /var/lib/apt/lists/* &&\
     usermod -aG sudo jovyan &&\
     echo 'jovyan ALL=(ALL) NOPASSWD: ALL' | EDITOR='tee -a' visudo
 
