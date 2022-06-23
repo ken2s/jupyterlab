@@ -11,12 +11,8 @@ RUN conda install beakerx openjdk=8 pyimagej rise \
     jupyter_contrib_nbextensions -c conda-forge -y &&\
     conda clean -i -t -y
 
-RUN wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip &&\
-    unzip ./fiji-linux64.zip
-
 RUN wget https://maven.scijava.org/content/repositories/public/net/imglib2/imglib2-unsafe/0.4.1/imglib2-unsafe-0.4.1.jar &&\ 
-    wget https://maven.scijava.org/content/repositories/public/net/imglib2/imglib2-imglyb/1.0.1/imglib2-imglyb-1.0.1.jar &&\
-    mv ./*.jar ./Fiji.app/jars/
+    wget https://maven.scijava.org/content/repositories/public/net/imglib2/imglib2-imglyb/1.0.1/imglib2-imglyb-1.0.1.jar
 
 RUN fix-permissions "${CONDA_DIR}" &&\
     fix-permissions "/home/${NB_USER}"
