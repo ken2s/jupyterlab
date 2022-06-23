@@ -19,11 +19,6 @@ RUN fix-permissions "${CONDA_DIR}" &&\
 
 RUN pip install --quiet --no-cache-dir git+https://github.com/imagej/pyimagej.git@master
 
-USER root
-
-RUN rm /home/${NB_USER}/work/fiji-linux64.zip &&\
-    mv /home/${NB_USER}/work/Fiji.app /opt/
-
 WORKDIR /notebooks
 
 ENV CONDA_DIR=/opt/conda
