@@ -11,3 +11,4 @@ MANIFEST
 .virtual_documents/*
 .DS_Store
 @eaDir
+.m2/
