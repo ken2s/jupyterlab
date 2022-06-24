@@ -1,4 +1,4 @@
-# Docker-JupyterLab
+# Docker-JupyterLab for PyImageJ
 
 <!-- ![Publish Docker image workflow](https://github.com/ken2s/jupyterlab/actions/workflows/build-and-push-image.yml/badge.svg) -->
 <a href="https://github.com/ken2s/jupyterlab/actions" rel="nofollow noopener" target="_blank"><img src="https://github.com/ken2s/jupyterlab/actions/workflows/build-and-push-image.yml/badge.svg" alt="Publish Docker image workflow"></a></p>
@@ -6,7 +6,6 @@
 ## Notebooks
 
 - [Python3](https://www.python.org)
-    - [OpenCV](https://opencv.org)
     - [PyImageJ](https://github.com/imagej/pyimagej)
         - [Clojure](https://clojure.org/)
         - [Groovy](http://groovy-lang.org/)
@@ -14,7 +13,9 @@
         - [Kotlin](https://kotlinlang.org/)
         - [Scala](https://www.scala-lang.org/)
         - SQL
-- [Julia 1.7.3](https://julialang.org)
+    - [scikit-image](https://scikit-image.org)
+    - [OpenCV](https://opencv.org)
+- [Julia](https://julialang.org)
 - [R](https://www.r-project.org)
 <!-- - [ImageJ](https://imagej.nih.gov/ij/)
 - [BeakerX](http://beakerx.com)
@@ -62,3 +63,8 @@ The container remains intact for restart after the Jupyter Server exits.
 ## URLs
 - https://github.com/ken2s/jupyterlab
 - https://hub.docker.com/r/ken2s/jupyterlab
+
+## References
+- https://jupyter-docker-stacks.readthedocs.io/
+- https://pyimagej.readthedocs.io/
+- https://github.com/imagej/pyimagej/
