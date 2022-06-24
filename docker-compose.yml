@@ -3,7 +3,7 @@ version: '3.3'
 services:
   jupyterlab:
     build: .
-    image: ken2s/jupyterlab:20220623
+    image: ken2s/jupyterlab:20220624
     container_name: jupyterlab
     user: $NB_USER
     working_dir: /notebooks
