@@ -1,4 +1,4 @@
-FROM jupyter/datascience-notebook:2022-06-13
+FROM jupyter/datascience-notebook:2022-06-20
 
 USER root
 RUN apt-get update &&\
@@ -21,24 +21,19 @@ RUN conda install beakerx openjdk=8 pyimagej rise \
     jupyter_contrib_nbextensions -c conda-forge -y &&\
     conda clean -i -t -y
 
+RUN pip install --quiet --no-cache-dir git+https://github.com/imagej/pyimagej.git@master &&\
+    wget https://raw.githubusercontent.com/imagej/pyimagej/master/doc/Puncta-Segmentation.ipynb &&\
+    wget https://raw.githubusercontent.com/imagej/pyimagej/master/doc/sample-data/test_still.tif &&\
+    jupyter nbconvert --to python Puncta-Segmentation.ipynb &&\
+    python Puncta-Segmentation.py
+
 RUN echo "c.NotebookApp.token=''" >> ~/.jupyter/jupyter_notebook_config.py &&\
     fix-permissions "${CONDA_DIR}" &&\
     fix-permissions "/home/${NB_USER}"
 
-RUN wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip &&\
-    unzip ./fiji-linux64.zip
-
-RUN wget https://maven.scijava.org/content/repositories/public/net/imglib2/imglib2-unsafe/0.4.1/imglib2-unsafe-0.4.1.jar &&\ 
-    wget https://maven.scijava.org/content/repositories/public/net/imglib2/imglib2-imglyb/1.0.1/imglib2-imglyb-1.0.1.jar &&\
-    mv ./*.jar ./Fiji.app/jars/
-
-RUN pip install --quiet --no-cache-dir git+https://github.com/imagej/pyimagej.git@master
-
 USER root
 
-RUN rm /home/${NB_USER}/work/fiji-linux64.zip &&\
-    mv /home/${NB_USER}/work/Fiji.app /opt/ &&\
-    rm -rf /var/lib/apt/lists/* &&\
+RUN rm -rf /var/lib/apt/lists/* &&\
     usermod -aG sudo jovyan &&\
     echo 'jovyan ALL=(ALL) NOPASSWD: ALL' | EDITOR='tee -a' visudo
 
