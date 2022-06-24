@@ -8,7 +8,7 @@ MANIFEST
 .vscode/settings.json
 .vscode/launch.json
 *.ipynb_checkpoints*
-.virtual_documents
-.virtual_documents/*
+doc_pyimagej/
+.virtual_documents/
 .DS_Store
 @eaDir
