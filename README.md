@@ -15,9 +15,9 @@
         - SQL
     - [scikit-image](https://scikit-image.org)
     - [OpenCV](https://opencv.org)
-- [Julia](https://julialang.org)
+<!-- - [Julia](https://julialang.org)
 - [R](https://www.r-project.org)
-<!-- - [ImageJ](https://imagej.nih.gov/ij/)
+- [ImageJ](https://imagej.nih.gov/ij/)
 - [BeakerX](http://beakerx.com)
 - [OpenJDK](https://openjdk.java.net) -->
 
