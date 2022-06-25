@@ -1,1 +1,1 @@
-docker image build --network host -t ken2s/jupyterlab:20220624 .
+docker image build --network host -t ken2s/jupyterlab:20220625 .
