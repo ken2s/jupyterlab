@@ -63,6 +63,7 @@ The container remains intact for restart after the Jupyter Server exits.
 ## URLs
 - https://github.com/ken2s/jupyterlab
 - https://hub.docker.com/r/ken2s/jupyterlab
+- https://qiita.com/ken2s/items/8784576d4f22432c4270
 
 ## References
 - https://jupyter-docker-stacks.readthedocs.io/
