@@ -1,4 +1,4 @@
-FROM jupyter/datascience-notebook:2022-06-20
+FROM jupyter/datascience-notebook:2022-07-27
 
 USER root
 RUN apt-get update &&\
@@ -27,11 +27,14 @@ RUN conda install beakerx openjdk=8 pyimagej rise \
 
 RUN pip install --quiet --no-cache-dir git+https://github.com/imagej/pyimagej.git@master &&\
     wget https://raw.githubusercontent.com/imagej/pyimagej/master/doc/Puncta-Segmentation.ipynb &&\
+    wget https://raw.githubusercontent.com/imagej/pyimagej/master/doc/Classic-Segmentation.ipynb &&\
     wget https://raw.githubusercontent.com/imagej/pyimagej/master/doc/sample-data/test_still.tif &&\
     mkdir sample-data &&\
     mv test_still.tif sample-data &&\
     jupyter nbconvert --to python Puncta-Segmentation.ipynb &&\
-    python Puncta-Segmentation.py
+    python Puncta-Segmentation.py &&\
+    jupyter nbconvert --to python Classic-Segmentation.ipynb &&\
+    python Classic-Segmentation.py
 
 RUN echo "c.NotebookApp.token=''" >> ~/.jupyter/jupyter_notebook_config.py &&\
     fix-permissions "${CONDA_DIR}" &&\
