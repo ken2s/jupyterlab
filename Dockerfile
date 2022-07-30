@@ -21,9 +21,11 @@ RUN pip install --upgrade pip  &&\
     julia ./packages.jl &&\
     Rscript ./packages.R
 
-RUN conda install beakerx openjdk=8 pyimagej rise \
+RUN mamba install beakerx openjdk=8 pyimagej rise \
     jupyter_contrib_nbextensions -c conda-forge -y &&\
-    conda clean -i -t -y
+    mamba clean --all -f -y && \
+    fix-permissions "${CONDA_DIR}" && \
+    fix-permissions "/home/${NB_USER}"
 
 RUN pip install --quiet --no-cache-dir git+https://github.com/imagej/pyimagej.git@master &&\
     wget https://raw.githubusercontent.com/imagej/pyimagej/master/doc/Puncta-Segmentation.ipynb &&\
@@ -36,9 +38,11 @@ RUN pip install --quiet --no-cache-dir git+https://github.com/imagej/pyimagej.gi
     jupyter nbconvert --to python Classic-Segmentation.ipynb &&\
     python Classic-Segmentation.py
 
-RUN echo "c.NotebookApp.token=''" >> ~/.jupyter/jupyter_notebook_config.py &&\
-    fix-permissions "${CONDA_DIR}" &&\
+RUN fix-permissions "${CONDA_DIR}" &&\
     fix-permissions "/home/${NB_USER}"
+
+ENTRYPOINT ["tini", "-g", "--"]
+CMD ["start-notebook.sh", "--LabApp.token=''"]
 
 WORKDIR /notebooks
 EXPOSE 8888
