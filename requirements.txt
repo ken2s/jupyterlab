@@ -7,6 +7,7 @@ mccabe
 numba
 opencv-python
 opencv-contrib-python
+pooch
 pycodestyle
 pydocstyle
 pyflakes
