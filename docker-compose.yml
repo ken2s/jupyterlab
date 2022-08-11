@@ -2,8 +2,12 @@ version: '3.3'
 
 services:
   jupyterlab:
-    build: .
-    image: ken2s/jupyterlab:20220730
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      network: host
+ 
+    image: ken2s/jupyterlab:20220812
     container_name: jupyterlab
     user: $NB_USER
     working_dir: /notebooks

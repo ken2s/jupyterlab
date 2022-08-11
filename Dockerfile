@@ -1,4 +1,4 @@
-FROM jupyter/datascience-notebook:2022-07-27
+FROM jupyter/datascience-notebook:2022-08-11
 
 USER root
 RUN apt-get update &&\
