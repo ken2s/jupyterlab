@@ -31,6 +31,12 @@ RUN pip install --quiet --no-cache-dir git+https://github.com/imagej/pyimagej.gi
     wget https://raw.githubusercontent.com/imagej/pyimagej/master/doc/Puncta-Segmentation.ipynb &&\
     wget https://raw.githubusercontent.com/imagej/pyimagej/master/doc/Classic-Segmentation.ipynb &&\
     wget https://raw.githubusercontent.com/imagej/pyimagej/master/doc/sample-data/test_still.tif &&\
+    wget https://scikit-image.org/docs/dev/_downloads/07fcc19ba03226cd3d83d4e40ec44385/auto_examples_python.zip &&\
+    unzip auto_examples_python.zip &&\
+    sed -e 's/^plotly/#plotly/g' data/plot_3d.py | python &&\
+    python data/plot_general.py &&\
+    python data/plot_scientific.py &&\
+    python data/plot_specific.py &&\
     mkdir sample-data &&\
     mv test_still.tif sample-data &&\
     jupyter nbconvert --to python Puncta-Segmentation.ipynb &&\
