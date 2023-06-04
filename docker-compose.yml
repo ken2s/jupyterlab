@@ -6,8 +6,8 @@ services:
       context: .
       dockerfile: ./Dockerfile
       network: host
- 
-    image: ken2s/jupyterlab:20220814
+
+    image: ken2s/jupyterlab:20230604
     container_name: jupyterlab
     user: $NB_USER
     working_dir: /notebooks
