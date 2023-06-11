@@ -27,10 +27,10 @@ RUN mamba install beakerx openjdk=8 pyimagej rise \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
-RUN pip install --quiet --no-cache-dir git+https://github.com/imagej/pyimagej.git@master &&\
-    wget https://raw.githubusercontent.com/imagej/pyimagej/master/doc/Puncta-Segmentation.ipynb &&\
-    wget https://raw.githubusercontent.com/imagej/pyimagej/master/doc/Classic-Segmentation.ipynb &&\
-    wget https://raw.githubusercontent.com/imagej/pyimagej/master/doc/sample-data/test_still.tif &&\
+RUN pip install --quiet --no-cache-dir git+https://github.com/imagej/pyimagej.git@main &&\
+    wget https://raw.githubusercontent.com/imagej/pyimagej/main/doc/Puncta-Segmentation.ipynb &&\
+    wget https://raw.githubusercontent.com/imagej/pyimagej/main/doc/Classic-Segmentation.ipynb &&\
+    wget https://raw.githubusercontent.com/imagej/pyimagej/main/doc/sample-data/test_still.tif &&\
     wget https://scikit-image.org/docs/dev/_downloads/07fcc19ba03226cd3d83d4e40ec44385/auto_examples_python.zip &&\
     unzip auto_examples_python.zip &&\
     sed -e 's/^plotly/#plotly/g' data/plot_3d.py | python &&\
