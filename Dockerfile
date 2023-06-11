@@ -17,12 +17,12 @@ RUN mamba install beakerx openjdk=8 pyimagej rise \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
-RUN pip install --quiet --no-cache-dir git+https://github.com/imagej/pyimagej.git@main &&\
-    wget https://raw.githubusercontent.com/imagej/pyimagej/main/doc/Classic-Segmentation.ipynb &&\
+RUN pip install --quiet --no-cache-dir git+https://github.com/imagej/pyimagej.git@1.4.1 &&\
+    wget https://raw.githubusercontent.com/imagej/pyimagej/1.4.1/doc/Classic-Segmentation.ipynb &&\
     jupyter nbconvert --to python Classic-Segmentation.ipynb &&\
     python Classic-Segmentation.py
-RUN wget https://raw.githubusercontent.com/imagej/pyimagej/main/doc/Puncta-Segmentation.ipynb &&\
-    wget https://raw.githubusercontent.com/imagej/pyimagej/main/doc/sample-data/test_still.tif &&\
+RUN wget https://raw.githubusercontent.com/imagej/pyimagej/1.4.1/doc/Puncta-Segmentation.ipynb &&\
+    wget https://raw.githubusercontent.com/imagej/pyimagej/1.4.1/doc/sample-data/test_still.tif &&\
     mkdir sample-data &&\
     mv test_still.tif sample-data &&\
     jupyter nbconvert --to python Puncta-Segmentation.ipynb &&\
