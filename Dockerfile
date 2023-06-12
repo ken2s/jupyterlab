@@ -1,4 +1,4 @@
-FROM jupyter/scipy-notebook:20230612
+FROM jupyter/scipy-notebook:2023-06-12
 
 USER ${NB_USER}
 
