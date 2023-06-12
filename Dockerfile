@@ -37,11 +37,16 @@ RUN pip install --quiet --no-cache-dir git+https://github.com/imagej/pyimagej.gi
     python data/plot_scientific.py &&\
     python data/plot_specific.py &&\
     mkdir sample-data &&\
-    mv test_still.tif sample-data &&\
-    jupyter nbconvert --to python Puncta-Segmentation.ipynb &&\
-    python Puncta-Segmentation.py &&\
-    jupyter nbconvert --to python Classic-Segmentation.ipynb &&\
-    python Classic-Segmentation.py
+    #     mv test_still.tif sample-data &&\
+    # RUN jupyter nbconvert --to python Puncta-Segmentation.ipynb &&\
+    #     python Puncta-Segmentation.py &&\
+    #     jupyter nbconvert --to python Classic-Segmentation.ipynb &&\
+    #     python Classic-Segmentation.py
+    mv test_still.tif sample-data
+RUN jupyter nbconvert --to python Puncta-Segmentation.ipynb
+RUN python Puncta-Segmentation.py
+RUN jupyter nbconvert --to python Classic-Segmentation.ipynb
+RUN python Classic-Segmentation.py
 
 RUN fix-permissions "${CONDA_DIR}" &&\
     fix-permissions "/home/${NB_USER}"
