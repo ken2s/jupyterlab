@@ -11,8 +11,7 @@ COPY --chown=${NB_UID}:${NB_GID} requirements.txt ./
 RUN pip install --upgrade pip  &&\
     pip install --quiet --no-cache-dir -r ./requirements.txt
 
-RUN mamba install beakerx openjdk=8 pyimagej rise \
-    jupyter_contrib_nbextensions -c conda-forge -y &&\
+RUN mamba install beakerx openjdk=8 pyimagej rise -c conda-forge -y &&\
     mamba clean --all -f -y && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
