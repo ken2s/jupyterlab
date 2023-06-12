@@ -25,5 +25,5 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ken2s/jupyterlab:latest
+          tags: ken2s/jupyterlab:20230614
