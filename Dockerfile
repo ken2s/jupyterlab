@@ -1,4 +1,4 @@
-FROM jupyter/datascience-notebook:2023-06-06
+FROM jupyter/datascience-notebook:2023-06-12
 
 USER root
 RUN apt-get update &&\
@@ -21,8 +21,7 @@ RUN pip install --upgrade pip  &&\
     julia ./packages.jl &&\
     Rscript ./packages.R
 
-RUN mamba install beakerx openjdk=8 pyimagej rise \
-    jupyter_contrib_nbextensions -c conda-forge -y &&\
+RUN mamba install beakerx openjdk=8 pyimagej rise -c conda-forge -y &&\
     mamba clean --all -f -y && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
