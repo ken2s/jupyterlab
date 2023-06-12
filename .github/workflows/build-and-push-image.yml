@@ -26,4 +26,4 @@ jobs:
         with:
           push: true
           tags: ken2s/jupyterlab:latest
-          tags: ken2s/jupyterlab:20230614
+          labels: ken2s/jupyterlab:20230614
