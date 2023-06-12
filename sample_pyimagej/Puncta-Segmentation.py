@@ -19,7 +19,7 @@ ij = imagej.init(mode='headless', add_legacy=True)
 print(f"ImageJ version: {ij.getVersion()}")
 
 
-# Now that ImageJ has been successfully initialized, lets next import the Java classes (_i.e._ ImageJ resources) we need for the rest of the workflow.
+# Now that ImageJ has been successfully initialized, let's next import the Java classes (_i.e._ ImageJ resources) we need for the rest of the workflow.
 
 # In[2]:
 
@@ -33,7 +33,7 @@ ParticleAnalyzer = sj.jimport('ij.plugin.filter.ParticleAnalyzer')
 
 # Next we load the data with `ij.io().open()` and then convert the 16-bit image to 32-bit with ImageJ ops (_i.e._ `ij.op().convert().int32()`). Alternatively you can load the data using other software packages such as scikit-image's `skimage.io.imread()` which returns a NumPy array. To convert the NumPy array into an ImageJ Java image (_e.g._ a Dataset: `net.imagej.Dataset`) call `ij.py.to_dataset()`.
 # 
-# _The sample images used in this notebook are available on the PyImageJ GitHub repository [here](https://github.com/imagej/pyimagej/tree/master/doc/sample-data)._
+# _The sample images used in this notebook are available on the PyImageJ GitHub repository [here](https://github.com/imagej/pyimagej/tree/main/doc/sample-data)._
 
 # In[3]:
 
@@ -90,6 +90,10 @@ ij.py.show(img_thres)
 # convert ImgPlus to ImagePlus
 imp_thres = ij.py.to_imageplus(img_thres)
 
+# tell ImageJ to use a black background
+Prefs = sj.jimport('ij.Prefs')
+Prefs.blackBackground = True
+
 # get ResultsTable and set ParticleAnalyzer
 rt = ij.ResultsTable.getResultsTable()
 ParticleAnalyzer.setResultsTable(rt)
@@ -104,6 +108,10 @@ ij.py.run_plugin(plugin="Analyze Particles...", args="clear", imp=imp_thres)
 sci_table = ij.convert().convert(rt, Table)
 df = ij.py.from_java(sci_table)
 
+
+# In[8]:
+
+
 # print dataframe
-print(df)
+df
 

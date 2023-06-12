@@ -91,7 +91,8 @@ ij.py.show(imp2d)
 Prefs = sj.jimport('ij.Prefs')
 Prefs.blackBackground = True
 ij.IJ.setAutoThreshold(imp2d, "Otsu dark")
-mask = imagej._ImagePlus()("cells-mask", imp2d.createThresholdMask())
+ImagePlus = sj.jimport("ij.ImagePlus")
+mask = ImagePlus("cells-mask", imp2d.createThresholdMask())
 ij.IJ.run(imp2d, "Close", "")
 ij.py.show(mask)
 
