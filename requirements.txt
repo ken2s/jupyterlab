@@ -19,3 +19,8 @@ numba
 plotly
 napari[all]
 imea
+pydub
+python_speech_features
+soundfile
+tensorflow
+librosa
