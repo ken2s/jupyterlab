@@ -15,3 +15,8 @@ pylint
 python-lsp-server
 rope
 yapf
+pydub
+python_speech_features
+soundfile
+tensorflow
+librosa
