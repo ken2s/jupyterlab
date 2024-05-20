@@ -21,32 +21,32 @@ RUN pip install --upgrade pip  &&\
     julia ./packages.jl &&\
     Rscript ./packages.R
 
-RUN mamba install beakerx openjdk=8 pyimagej rise -c conda-forge -y &&\
-    mamba clean --all -f -y && \
-    fix-permissions "${CONDA_DIR}" && \
-    fix-permissions "/home/${NB_USER}"
+# RUN mamba install beakerx openjdk=8 pyimagej rise -c conda-forge -y &&\
+#     mamba clean --all -f -y && \
+#     fix-permissions "${CONDA_DIR}" && \
+#     fix-permissions "/home/${NB_USER}"
 
-RUN pip install --quiet --no-cache-dir git+https://github.com/imagej/pyimagej.git@main &&\
-    wget https://raw.githubusercontent.com/imagej/pyimagej/main/doc/Puncta-Segmentation.ipynb &&\
-    wget https://raw.githubusercontent.com/imagej/pyimagej/main/doc/Classic-Segmentation.ipynb &&\
-    wget https://raw.githubusercontent.com/imagej/pyimagej/main/doc/sample-data/test_still.tif &&\
-    wget https://scikit-image.org/docs/dev/_downloads/07fcc19ba03226cd3d83d4e40ec44385/auto_examples_python.zip &&\
-    unzip auto_examples_python.zip &&\
-    sed -e 's/^plotly/#plotly/g' data/plot_3d.py | python &&\
-    python data/plot_general.py &&\
-    python data/plot_scientific.py &&\
-    python data/plot_specific.py &&\
-    mkdir sample-data &&\
-    #     mv test_still.tif sample-data &&\
-    # RUN jupyter nbconvert --to python Puncta-Segmentation.ipynb &&\
-    #     python Puncta-Segmentation.py &&\
-    #     jupyter nbconvert --to python Classic-Segmentation.ipynb &&\
-    #     python Classic-Segmentation.py
-    mv test_still.tif sample-data
-RUN jupyter nbconvert --to python Puncta-Segmentation.ipynb
-RUN python Puncta-Segmentation.py
-RUN jupyter nbconvert --to python Classic-Segmentation.ipynb
-RUN python Classic-Segmentation.py
+# RUN pip install --quiet --no-cache-dir git+https://github.com/imagej/pyimagej.git@main &&\
+#     wget https://raw.githubusercontent.com/imagej/pyimagej/main/doc/Puncta-Segmentation.ipynb &&\
+#     wget https://raw.githubusercontent.com/imagej/pyimagej/main/doc/Classic-Segmentation.ipynb &&\
+#     wget https://raw.githubusercontent.com/imagej/pyimagej/main/doc/sample-data/test_still.tif &&\
+#     wget https://scikit-image.org/docs/dev/_downloads/07fcc19ba03226cd3d83d4e40ec44385/auto_examples_python.zip &&\
+#     unzip auto_examples_python.zip &&\
+#     sed -e 's/^plotly/#plotly/g' data/plot_3d.py | python &&\
+#     python data/plot_general.py &&\
+#     python data/plot_scientific.py &&\
+#     python data/plot_specific.py &&\
+#     mkdir sample-data &&\
+#     #     mv test_still.tif sample-data &&\
+#     # RUN jupyter nbconvert --to python Puncta-Segmentation.ipynb &&\
+#     #     python Puncta-Segmentation.py &&\
+#     #     jupyter nbconvert --to python Classic-Segmentation.ipynb &&\
+#     #     python Classic-Segmentation.py
+#     mv test_still.tif sample-data
+# RUN jupyter nbconvert --to python Puncta-Segmentation.ipynb
+# RUN python Puncta-Segmentation.py
+# RUN jupyter nbconvert --to python Classic-Segmentation.ipynb
+# RUN python Classic-Segmentation.py
 
 RUN fix-permissions "${CONDA_DIR}" &&\
     fix-permissions "/home/${NB_USER}"
